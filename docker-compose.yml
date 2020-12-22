@@ -1,0 +1,21 @@
+version: '3'
+services:
+  angular:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '4444:4200'
+    volumes:
+      - /home/app/node_modules
+      - .:/home/app
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '9876:9876'
+    volumes:
+      - /home/app/node_modules
+      - .:/home/app
+    command: ["ng", "test"]
