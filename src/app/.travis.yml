@@ -6,4 +6,4 @@ before_install:
   - docker build -t darekb/docker-angular -f Dockerfile.dev .
 
 script:
-  - docker run darekb/docker-angular ng test
+  - docker run darekb/docker-angular npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
