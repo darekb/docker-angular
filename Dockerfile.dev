@@ -1,4 +1,4 @@
-FROM node:12.20.0-alpine3.11
+FROM tishun/node-chromeheadless
 WORKDIR '/home/app'
 RUN npm install -g @angular/cli
 COPY package.json .
