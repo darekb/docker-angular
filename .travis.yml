@@ -11,10 +11,10 @@ script:
 delpoy:
   provider: elasticbeanstalk
   region: "us-east-2"
-  app: "docker-angular"
-  env: "DockerAngular-env"
+  app: "docker_angular"
+  env: "DockerAngular-env-1"
   bucket_name: "elasticbeanstalk-us-east-2-390479801524"
-  bucket_path: "docker-angular"
+  bucket_path: "docker_angular"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
