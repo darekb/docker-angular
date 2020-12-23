@@ -1,11 +1,11 @@
-FROM node:12.20.0-alpine3.11 as builder
+FROM node:12.20.0-alpine3.11
 WORKDIR '/home/app'
 RUN npm install -g @angular/cli
-COPY package.json .
+COPY package.json ./
 RUN npm install
-COPY . .
+COPY ./ ./
 RUN npm run build --prod
 
 FROM nginx:alpine
 EXPOSE 80
-COPY --from=builder /home/app/dist/frontend /usr/share/nginx/html
+COPY --from=0 /home/app/dist/frontend /usr/share/nginx/html
