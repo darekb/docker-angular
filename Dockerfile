@@ -7,4 +7,5 @@ COPY . .
 RUN npm run build --prod
 
 FROM nginx:alpine
+EXPOSE 80
 COPY --from=builder /home/app/dist/frontend /usr/share/nginx/html
