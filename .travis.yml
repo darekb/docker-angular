@@ -7,3 +7,19 @@ before_install:
 
 script:
   - docker run darekb/docker-angular npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+delpoy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-angular"
+  env: "DockerAngular-env"
+  bucket_name: "elasticbeanstalk-us-east-2-390479801524"
+  bucket_path: "docker-angular"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
+
+
+
